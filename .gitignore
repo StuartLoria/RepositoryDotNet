@@ -1,52 +1,48 @@
-# Prerequisites
-*.d
+*/*/bin
+*/*/obj
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+nupkg/
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# Visual Studio Code
+.vscode
 
-# Precompiled Headers
-*.gch
-*.pch
+# Rider
+.idea
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.csproj.user
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+# unnecesary files
+OutputLog.txt
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+# Visual Studio 2015
+.vs/
+Nearshore.Web/Pages/Administration/Resumes/*
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# packages dependencies
+**/packages/*
