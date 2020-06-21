@@ -1,5 +1,6 @@
 ﻿using CoursesLibrary.Interfaces;
 using CoursesLibrary.Models;
+using Microsoft.EntityFrameworkCore;
 using RepositoryEF.Implementations;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace CoursesLibrary.Implementations
 {
     public class AuthorRepository : Repository<Author>, IAuthorRepository
     {
-        public CoursesDBContext CoursesContext 
+        private CoursesDBContext CoursesContext 
         {
             get
             {

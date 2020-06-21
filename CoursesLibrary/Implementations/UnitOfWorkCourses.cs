@@ -9,15 +9,19 @@ namespace CoursesLibrary.Implementations
     public class UnitOfWorkCourses : IUnitOfWorkCourses
     {
         private readonly CoursesDBContext _context;
-        public ICourseRepository Courses { get; private set; }
+        public ICourseRepository CoursesRepo { get; private set; }
 
-        public IAuthorRepository Authors { get; private set; }
+        public IAuthorRepository AuthorsRepo { get; private set; }
 
         public UnitOfWorkCourses(CoursesDBContext context, ICourseRepository courses, IAuthorRepository authors)
         {
             _context = context;
-            Courses = courses;
-            Authors = authors;
+            
+            CoursesRepo = courses;
+            CoursesRepo.SetContext(_context);
+
+            AuthorsRepo = authors;
+            AuthorsRepo.SetContext(_context);
         }
 
         public int Complete()

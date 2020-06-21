@@ -6,8 +6,8 @@ namespace CoursesLibrary.Interfaces
 {
     public interface IUnitOfWorkCourses : IDisposable
     {
-        ICourseRepository Courses { get; }
-        IAuthorRepository Authors { get; }
+        ICourseRepository CoursesRepo { get; }
+        IAuthorRepository AuthorsRepo { get; }
         int Complete();
     }
 }

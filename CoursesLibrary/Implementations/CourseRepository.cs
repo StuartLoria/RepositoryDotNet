@@ -13,18 +13,17 @@ namespace CoursesLibrary.Implementations
 {
     public class CourseRepository : Repository<Course>, ICourseRepository
     {
-        public CoursesDBContext CoursesContext 
+        public CourseRepository(CoursesDBContext context)
+            :base(context)
+        {
+        }
+        private CoursesDBContext CoursesContext
         {
             get
             {
                 //Since we know the type of the context via the constructor we can do the following
                 return Context as CoursesDBContext;
             }
-        }
-
-        public CourseRepository(CoursesDBContext context)
-            :base(context)
-        {
         }
 
         public IEnumerable<Course> GetCoursesWithAuthors(int pageIndex = 0, int pageSize = 10)

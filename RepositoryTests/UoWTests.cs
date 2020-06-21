@@ -106,13 +106,13 @@ namespace RepositoryTests
         {
             //var courses = unitOfWork.Courses.GetCoursesWithAuthors();
             
-            var course = unitOfWork.Courses.Get(1);
+            var course = unitOfWork.CoursesRepo.Get(1);
             Assert.AreEqual(course.Authors[0].Language, "English");
 
             course.Authors[0].Language = "Spanish";
             unitOfWork.Complete();
             
-            course = unitOfWork.Courses.Get(1);
+            course = unitOfWork.CoursesRepo.Get(1);
             Assert.AreEqual(course.Authors[0].Language, "Spanish");
         }
     }

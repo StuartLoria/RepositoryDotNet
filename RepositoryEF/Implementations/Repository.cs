@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RepositoryEF.Interfaces;
 using RepositoryLibrary.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,9 @@ namespace RepositoryEF.Implementations
     /// EF implementation of a Generic Repository
     /// </summary>
     /// <typeparam name="TEntity">Concrete Entity Type</typeparam>
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepositoryEF<TEntity> where TEntity : class
     {
-        protected readonly DbContext Context;
+        protected DbContext Context;
 
         public Repository(DbContext context)
         {
@@ -62,6 +63,26 @@ namespace RepositoryEF.Implementations
         public void RemoveRange(IEnumerable<TEntity> entities)
         {
             GetModelFromContext().RemoveRange(entities);
+        }
+
+        public bool SetContext(DbContext context)
+        {
+            bool success = true;
+
+            try
+            {
+                bool contextIsDifferent = context != Context;
+                if (contextIsDifferent)
+                {
+                    Context = context;
+                }
+            }
+            catch (Exception)
+            {
+                success = false;
+            }
+
+            return success;
         }
     }
 }
